@@ -1,1 +1,7 @@
-org/microtrack/Manager.class
+org\microtrack\service\Manager.class
+org\microtrack\constants\Constants.class
+org\microtrack\dto\Trace.class
+org\microtrack\dto\Trace$TraceBuilder.class
+org\microtrack\gateway\CentralService.class
+org\microtrack\service\TraceService.class
+org\microtrack\Utils\Mapper.class
