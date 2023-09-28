@@ -19,8 +19,10 @@ public class Trace {
 
     public String getAllString() {
         return String.format(
-                "{\"serviceName\": \"%s\", \"traceId\": \"%s\", \"genericData\": \"%s\"}",
-                serviceName, traceId, genericData
+                "{\"serviceName\": \"%s\", \"traceId\": \"%s\", " +
+                    "\"timestamp\": \"%s\", \"checkpointName\": \"%s\", \"isError\": \"%s\", " +
+                        "\"genericData\": \"%s\"}",
+                serviceName, traceId, timestamp, checkpointName, isError, genericData
         );
     }
 

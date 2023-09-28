@@ -1,7 +1,10 @@
 package org.microtrack.service;
 
+import org.microtrack.dto.ResponseTrace;
 import org.microtrack.dto.Trace;
 import org.microtrack.gateway.CentralService;
+
+import java.io.IOException;
 
 public class TraceService {
 
@@ -11,16 +14,14 @@ public class TraceService {
         this.centralService = new CentralService();
     }
 
-    public void checkpoint(Manager manager, Trace trace) {
-        if (!manager.isTracingEnabled()) return;
+    public ResponseTrace checkpoint(Manager manager, Trace trace) throws IOException, InterruptedException {
+        if (!manager.isTracingEnabled()) {
+            return ResponseTrace.builder()
+                    .message("Tracing disabled!")
+                    .build();
+        }
 
-        centralService.sendTrace(trace);
-    }
-
-    public String getDataMessage() throws Exception {
-//        sendTrace(serviceName, traceId, genericData);
-//        return String.format("%s, %s, %s!", serviceName, traceId, genericData);
-        return "";
+        return centralService.sendTrace(trace);
     }
 
 }
