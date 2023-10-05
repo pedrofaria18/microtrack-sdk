@@ -5,6 +5,7 @@ import org.microtrack.dto.Trace;
 import org.microtrack.gateway.CentralService;
 
 import java.io.IOException;
+import java.sql.Timestamp;
 
 public class TraceService {
 
@@ -20,6 +21,8 @@ public class TraceService {
                     .message("Tracing disabled!")
                     .build();
         }
+
+        trace.setTimestamp(new Timestamp(System.currentTimeMillis()));
 
         return centralService.sendTrace(trace);
     }

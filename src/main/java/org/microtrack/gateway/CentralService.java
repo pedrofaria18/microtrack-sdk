@@ -8,13 +8,14 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 
 public class CentralService {
 
     public ResponseTrace sendTrace(Trace trace) throws IOException, InterruptedException {
         try {
 
-            String uri = "https://a41e-2804-7f2-2895-5089-cdce-1861-8b4b-ffa.ngrok-free.app/traces";
+            String uri = "https://3ae7-2804-7f2-2895-5089-d494-3136-99a-3a9.ngrok-free.app/traces";
 
             System.out.println(uri);
 
@@ -22,7 +23,7 @@ public class CentralService {
             HttpRequest request = HttpRequest.newBuilder()
                     .uri(URI.create(uri))
                     .header("Content-Type", "application/json")
-                    .POST(HttpRequest.BodyPublishers.ofString(trace.getAllString()))
+                    .POST(HttpRequest.BodyPublishers.ofString(trace.getAllString(), StandardCharsets.UTF_8))
                     .build();
 
             HttpResponse<?> response = client.send(request, HttpResponse.BodyHandlers.ofString());
