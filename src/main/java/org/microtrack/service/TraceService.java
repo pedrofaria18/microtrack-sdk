@@ -15,11 +15,11 @@ public class TraceService {
         this.centralService = new CentralService();
     }
 
-    public ResponseTrace checkpoint(Manager manager, Trace trace) throws IOException, InterruptedException {
+    public ResponseTrace checkpoint(Manager manager, Trace trace) throws IOException, InterruptedException, IllegalAccessException {
         if (!manager.isTracingEnabled()) {
-            return ResponseTrace.builder()
-                    .message("Tracing disabled!")
-                    .build();
+            ResponseTrace responseTrace = new ResponseTrace();
+            responseTrace.setMessage("Tracing disabled!");
+            return responseTrace;
         }
 
         trace.setTimestamp(new Timestamp(System.currentTimeMillis()));
