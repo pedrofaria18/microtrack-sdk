@@ -18,7 +18,7 @@ Artigo publicado sobre o projeto:
 </dependency>
 ``` 
 
-5. O SDK funciona da seguinte maneira: O desenvolvedor deve definir pontos (checkpoints) dentro de cada microsserviço que compõe sua arquitetura em que se deseja rastrear os dados que ali serão trafegados.
+5. O SDK funciona da seguinte maneira: O desenvolvedor deve definir pontos (checkpoints) dentro de cada microsserviço que compõem sua arquitetura em que se deseja rastrear os dados que ali serão trafegados.
 Para defini-los o desenvolvedor deve:
    * Criar uma única instância da classe "Manager". Ela é responsável por definir algumas constantes de configuração do SDK, como ’isTracingEnabled’ que indica se o registro de tracer está habilitado, ou não (possibilitando o desenvolvedor desabilitar o uso da solução a qualquer momento);
    * Criar uma única instância da classe "TraceService", que contém os métodos necessários para a criação de um checkpoins;
